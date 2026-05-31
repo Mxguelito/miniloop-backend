@@ -6,7 +6,7 @@ from werkzeug.security import (
 
 from datetime import datetime
 
-from src.app.config.db import db
+from src.app.shared.config.db import db
 
 from src.app.models.persona_model import Persona
 from src.app.models.usuario_auth_model import UsuarioAuth

@@ -1,4 +1,4 @@
-from src.app.config.db import db
+from src.app.shared.config.db import db
 from datetime import datetime
 
 

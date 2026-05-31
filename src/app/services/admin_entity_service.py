@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from src.app.config.db import db
+from src.app.shared.config.db import db
 
 from src.app.models.entidad_model import Entidad
 from src.app.models.auditoria_model import Auditoria

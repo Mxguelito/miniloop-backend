@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
 
-from src.app.config.db import db
+from src.app.shared.config.db import db
 
 from src.app.routes.main_routes import main
 from src.app.routes.auth_routes import auth

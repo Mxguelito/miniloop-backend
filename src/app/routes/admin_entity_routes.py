@@ -4,7 +4,7 @@ from src.app.controllers.admin_entity_controller import (
     AdminEntityController
 )
 
-from src.app.middleware.auth_middleware import (
+from src.app.shared.middleware.auth_middleware import (
     token_required
 )
 

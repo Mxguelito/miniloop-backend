@@ -1,5 +1,5 @@
 from src.app import create_app
-from src.app.config.db import db
+from src.app.shared.config.db import db
 
 # AUTH
 from src.app.models.persona_model import Persona
