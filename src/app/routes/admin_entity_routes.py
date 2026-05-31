@@ -1,10 +1,10 @@
 from flask import Blueprint
 
-from app.controllers.admin_entity_controller import (
+from src.app.controllers.admin_entity_controller import (
     AdminEntityController
 )
 
-from app.middleware.auth_middleware import (
+from src.app.middleware.auth_middleware import (
     token_required
 )
 

@@ -6,11 +6,11 @@ from werkzeug.security import (
 
 from datetime import datetime
 
-from app.config.db import db
+from src.app.config.db import db
 
-from app.models.persona_model import Persona
-from app.models.usuario_auth_model import UsuarioAuth
-from app.models.auditoria_model import Auditoria
+from src.app.models.persona_model import Persona
+from src.app.models.usuario_auth_model import UsuarioAuth
+from src.app.models.auditoria_model import Auditoria
 
 
 class AuthService:

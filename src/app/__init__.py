@@ -1,12 +1,12 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
 
-from app.config.db import db
+from src.app.config.db import db
 
-from app.routes.main_routes import main
-from app.routes.auth_routes import auth
-from app.routes.entity_routes import entity
-from app.routes.admin_entity_routes import admin_entity
+from src.app.routes.main_routes import main
+from src.app.routes.auth_routes import auth
+from src.app.routes.entity_routes import entity
+from src.app.routes.admin_entity_routes import admin_entity
 
 
 def create_app():

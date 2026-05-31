@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from app.services.admin_entity_service import (
+from src.app.services.admin_entity_service import (
     AdminEntityService
 )
 

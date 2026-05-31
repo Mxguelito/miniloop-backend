@@ -1,7 +1,7 @@
 from flask import Blueprint
 
-from app.controllers.auth_controller import AuthController
-from app.middleware.auth_middleware import token_required
+from src.app.controllers.auth_controller import AuthController
+from src.app.middleware.auth_middleware import token_required
 
 
 auth = Blueprint(

@@ -1,9 +1,9 @@
 from datetime import datetime
 
-from app.config.db import db
+from src.app.config.db import db
 
-from app.models.entidad_model import Entidad
-from app.models.auditoria_model import Auditoria
+from src.app.models.entidad_model import Entidad
+from src.app.models.auditoria_model import Auditoria
 
 
 class AdminEntityService:

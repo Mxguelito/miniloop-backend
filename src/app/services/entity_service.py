@@ -1,8 +1,8 @@
-from app.config.db import db
+from src.app.config.db import db
 
-from app.models.entidad_model import Entidad
-from app.models.consorcio_model import Consorcio
-from app.models.persona_entidad_model import PersonaEntidad
+from src.app.models.entidad_model import Entidad
+from src.app.models.consorcio_model import Consorcio
+from src.app.models.persona_entidad_model import PersonaEntidad
 
 
 class EntityService:
