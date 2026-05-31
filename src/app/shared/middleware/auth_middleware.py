@@ -5,7 +5,7 @@ from flask_jwt_extended import (
     get_jwt_identity
 )
 
-from src.app.models.persona_model import Persona
+from src.app.auth.models.persona_model import Persona
 
 
 def token_required(f):

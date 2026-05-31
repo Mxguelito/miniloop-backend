@@ -8,9 +8,9 @@ from datetime import datetime
 
 from src.app.shared.config.db import db
 
-from src.app.models.persona_model import Persona
-from src.app.models.usuario_auth_model import UsuarioAuth
-from src.app.models.auditoria_model import Auditoria
+from src.app.auth.models.persona_model import Persona
+from src.app.auth.models.usuario_auth_model import UsuarioAuth
+from src.app.auth.models.auditoria_model import Auditoria
 
 
 class AuthService:

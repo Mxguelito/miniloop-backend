@@ -4,9 +4,9 @@ from flask_jwt_extended import JWTManager
 from src.app.shared.config.db import db
 
 from src.app.routes.main_routes import main
-from src.app.routes.auth_routes import auth
-from src.app.routes.entity_routes import entity
-from src.app.routes.admin_entity_routes import admin_entity
+from src.app.auth.routes.auth_routes import auth
+from src.app.entities.routes.entity_routes import entity
+from src.app.entities.routes.admin_entity_routes import admin_entity
 
 
 def create_app():

@@ -1,6 +1,6 @@
 from flask import request
 
-from src.app.services.entity_service import EntityService
+from src.app.entities.services.entity_service import EntityService
 
 
 class EntityController:

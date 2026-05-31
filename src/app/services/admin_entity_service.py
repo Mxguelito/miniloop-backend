@@ -2,8 +2,8 @@ from datetime import datetime
 
 from src.app.shared.config.db import db
 
-from src.app.models.entidad_model import Entidad
-from src.app.models.auditoria_model import Auditoria
+from src.app.entities.models.entidad_model import Entidad
+from src.app.auth.models.auditoria_model import Auditoria
 
 
 class AdminEntityService:

@@ -1,6 +1,6 @@
 from flask import request, jsonify
 
-from src.app.services.auth_service import AuthService
+from src.app.auth.services.auth_service import AuthService
 
 
 class AuthController:

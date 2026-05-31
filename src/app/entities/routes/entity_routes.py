@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from src.app.controllers.entity_controller import EntityController
+from src.app.entities.controllers.entity_controller import EntityController
 
 from src.app.shared.middleware.auth_middleware import token_required
 
