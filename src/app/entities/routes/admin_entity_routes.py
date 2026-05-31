@@ -1,6 +1,6 @@
 from flask import Blueprint
 
-from src.app.controllers.admin_entity_controller import (
+from src.app.entities.controllers.admin_entity_controller import (
     AdminEntityController
 )
 
