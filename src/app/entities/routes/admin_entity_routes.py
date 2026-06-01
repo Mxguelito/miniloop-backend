@@ -45,11 +45,48 @@ def approve_consorcio(
 )
 @token_required
 def reject_consorcio(
+
     current_user,
     entidad_id
 ):
 
     return AdminEntityController.reject_consorcio(
+        current_user,
+        entidad_id
+    )
+
+
+# =========================
+# APPROVE COMERCIO
+@admin_entity.route(
+    "/api/v1/admin/entities/comercios/<int:entidad_id>/approve",
+    methods=["PUT"]
+)
+@token_required
+def approve_comercio(
+    current_user,
+    entidad_id
+):
+
+    return AdminEntityController.approve_comercio(
+        entidad_id,
+        current_user
+    )
+
+
+# =========================
+# REJECT COMERCIO
+@admin_entity.route(
+    "/api/v1/admin/entities/comercios/<int:entidad_id>/reject",
+    methods=["PUT"]
+)
+@token_required
+def reject_comercio(
+    current_user,
+    entidad_id
+):
+
+    return AdminEntityController.reject_comercio(
         current_user,
         entidad_id
     )

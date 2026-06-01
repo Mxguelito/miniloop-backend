@@ -11,11 +11,12 @@ from src.app.entities.models.entidad_model import Entidad
 from src.app.entities.models.consorcio_model import Consorcio
 from src.app.entities.models.persona_entidad_model import PersonaEntidad
 
+from src.app.entities.models.comercio_model import Comercio
+
 
 app = create_app()
 
-with app.app_context():
-    db.create_all()
+
 
 if __name__ == "__main__":
     app.run(debug=True)

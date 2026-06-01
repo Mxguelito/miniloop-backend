@@ -216,6 +216,201 @@ class AdminEntityService:
                 "message": str(e)
             }, 500
 
-    
+    @staticmethod
+    def approve_comercio(
+    entidad_id,
+    current_user
+     ):
+
+     try:
+
+        entidad = Entidad.query.get(
+            entidad_id
+        )
+
+        # =========================
+        # VALIDAR EXISTENCIA
+        # =========================
+
+        if not entidad:
+
+            return {
+                "success": False,
+                "message": "Entidad no encontrada"
+            }, 404
+
+        # =========================
+        # VALIDAR TIPO ENTIDAD
+        # =========================
+
+        if entidad.tipo_entidad != "COMERCIO":
+
+            return {
+                "success": False,
+                "message": "La entidad no es un comercio"
+            }, 400
+
+        # =========================
+        # VALIDAR ESTADO
+        # =========================
+
+        if entidad.estado != "PENDIENTE_APROBACION":
+
+            return {
+                "success": False,
+                "message": "La entidad ya fue procesada"
+            }, 400
+
+        # =========================
+        # APROBAR COMERCIO
+        # =========================
+
+        entidad.estado = "ACTIVO"
+
+        entidad.updated_at = datetime.utcnow()
+
+        # =========================
+        # AUDITORÍA
+        # =========================
+
+        auditoria = Auditoria(
+
+            persona_id=current_user.id,
+
+            evento="COMERCIO_APPROVED",
+
+            severidad="INFO",
+
+            descripcion=f"Comercio aprobado: {entidad.nombre}"
+        )
+
+        db.session.add(auditoria)
+
+        db.session.commit()
+
+        return {
+            "success": True,
+            "message": "Comercio aprobado correctamente",
+            "entidad": entidad.to_dict()
+        }, 200
+
+     except Exception as e:
+
+        db.session.rollback()
+
+        return {
+            "success": False,
+            "message": str(e)
+        }, 500
+
+
+    @staticmethod
+    def reject_comercio(
+    entidad_id,
+    current_user,
+    motivo_rechazo
+    ):
+
+       try:
+
+        entidad = Entidad.query.get(
+            entidad_id
+        )
+
+        # =========================
+        # VALIDAR EXISTENCIA
+        # =========================
+
+        if not entidad:
+
+            return {
+                "success": False,
+                "message": "Entidad no encontrada"
+            }, 404
+
+        # =========================
+        # VALIDAR TIPO ENTIDAD
+        # =========================
+
+        if entidad.tipo_entidad != "COMERCIO":
+
+            return {
+                "success": False,
+                "message": "La entidad no es un comercio"
+            }, 400
+
+        # =========================
+        # VALIDAR ESTADO
+        # =========================
+
+        if entidad.estado != "PENDIENTE_APROBACION":
+
+            return {
+                "success": False,
+                "message": "La entidad ya fue procesada"
+            }, 400
+
+        # =========================
+        # VALIDAR MOTIVO
+        # =========================
+
+        if not motivo_rechazo:
+
+            return {
+                "success": False,
+                "message": "El motivo de rechazo es obligatorio"
+            }, 400
+
+        # =========================
+        # RECHAZAR COMERCIO
+        # =========================
+
+        entidad.estado = "RECHAZADO"
+
+        entidad.motivo_rechazo = motivo_rechazo
+
+        entidad.fecha_rechazo = datetime.utcnow()
+
+        entidad.rechazado_por = current_user.id
+
+        entidad.updated_at = datetime.utcnow()
+
+        # =========================
+        # AUDITORÍA
+        # =========================
+
+        auditoria = Auditoria(
+
+            persona_id=current_user.id,
+
+            evento="COMERCIO_REJECTED",
+
+            severidad="WARNING",
+
+            descripcion=f"Comercio rechazado: {entidad.nombre}"
+        )
+
+        db.session.add(auditoria)
+
+        # =========================
+        # COMMIT
+        # =========================
+
+        db.session.commit()
+
+        return {
+            "success": True,
+            "message": "Comercio rechazado correctamente",
+            "entidad": entidad.to_dict()
+        }, 200
+
+       except Exception as e:
+
+        db.session.rollback()
+
+        return {
+            "success": False,
+            "message": str(e)
+        }, 500
 
 

@@ -1,5 +1,7 @@
 from flask import Flask
 from flask_jwt_extended import JWTManager
+from flask_migrate import Migrate
+
 
 from src.app.shared.config.db import db
 
@@ -15,7 +17,7 @@ def create_app():
 
     # DATABASE
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:admin123@localhost/miniloop"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "postgresql://postgres:admin123@localhost/miniloop_backend"
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
@@ -29,6 +31,10 @@ def create_app():
     # INIT DB
 
     db.init_app(app)
+
+
+    # MIGRATIONS
+    Migrate(app, db)
 
     # INIT JWT
 

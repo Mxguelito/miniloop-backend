@@ -50,3 +50,51 @@ class EntityController:
                 "message": "Error al crear consorcio",
                 "error": str(e)
             }, 500
+        
+
+        
+        
+    @staticmethod
+    def create_comercio(current_user):
+
+        try:
+
+            data = request.get_json()
+
+            required_fields = [
+                "nombre",
+                "rubro",
+                "direccion"
+            ]
+
+            # =========================
+            # VALIDAR CAMPOS
+            # =========================
+
+            for field in required_fields:
+
+                if field not in data:
+
+                    return {
+                        "success": False,
+                        "message": f"Falta el campo: {field}"
+                    }, 400
+
+            # =========================
+            # CREATE COMERCIO
+            # =========================
+
+            result = EntityService.create_comercio(
+                data,
+                current_user
+            )
+
+            return result, 201
+
+        except Exception as e:
+
+            return {
+                "success": False,
+                "message": "Error al crear comercio",
+                "error": str(e)
+            }, 500

@@ -22,6 +22,23 @@ entity = Blueprint(
 @token_required
 def create_consorcio(current_user):
 
+
     return EntityController.create_consorcio(
+        current_user
+    )
+
+
+# =========================
+# CREATE COMERCIO
+# =========================
+
+@entity.route(
+    "/api/v1/entities/comercios",
+    methods=["POST"]
+)
+@token_required
+def create_comercio(current_user):
+
+    return EntityController.create_comercio(
         current_user
     )

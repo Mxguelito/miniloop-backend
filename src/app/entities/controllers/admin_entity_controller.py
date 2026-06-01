@@ -1,5 +1,5 @@
 from flask import request, jsonify
-from src.app.services.admin_entity_service import (
+from src.app.entities.services.admin_entity_service import (
     AdminEntityService
 )
 
@@ -16,14 +16,12 @@ class AdminEntityController:
             entidad_id,
             current_user
         )
-    
-       
-       
+
     @staticmethod
     def reject_consorcio(
         current_user,
         entidad_id
-        ):
+    ):
 
         data = request.get_json()
 
@@ -31,10 +29,41 @@ class AdminEntityController:
             "motivo_rechazo"
         )
 
-        
-
         response, status_code = (
             AdminEntityService.reject_consorcio(
+                entidad_id,
+                current_user,
+                motivo_rechazo
+            )
+        )
+
+        return jsonify(response), status_code
+
+    @staticmethod
+    def approve_comercio(
+        entidad_id,
+        current_user
+    ):
+
+        return AdminEntityService.approve_comercio(
+            entidad_id,
+            current_user
+        )
+
+    @staticmethod
+    def reject_comercio(
+        current_user,
+        entidad_id
+    ):
+
+        data = request.get_json()
+
+        motivo_rechazo = data.get(
+            "motivo_rechazo"
+        )
+
+        response, status_code = (
+            AdminEntityService.reject_comercio(
                 entidad_id,
                 current_user,
                 motivo_rechazo
