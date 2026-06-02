@@ -39,6 +39,106 @@ def create_consorcio(current_user):
 @token_required
 def create_comercio(current_user):
 
+
     return EntityController.create_comercio(
+        current_user
+    )
+
+# =========================
+# UPDATE ENTITY
+# =========================
+
+@entity.route(
+    "/api/v1/entities/<int:entidad_id>",
+    methods=["PUT"]
+)
+@token_required
+def update_entity(
+    current_user,
+    entidad_id
+):
+
+    return EntityController.update_entity(
+        current_user,
+        entidad_id
+    )
+
+# =========================
+# DELETE ENTITY (soft delete)
+# =========================
+@entity.route(
+    "/api/v1/entities/<int:entidad_id>",
+    methods=["DELETE"]
+)
+@token_required
+def delete_entity(
+    current_user,
+    entidad_id
+):
+
+    return EntityController.delete_entity(
+        current_user,
+        entidad_id
+    )
+
+# =========================
+# GET ENTITIES
+# =========================
+@entity.route(
+    "/api/v1/entities",
+    methods=["GET"]
+)
+@token_required
+def get_entities(current_user):
+
+    return EntityController.get_entities(
+        current_user
+    )
+
+# =========================
+# GET ENTITY BY ID
+# =========================
+@entity.route(
+    "/api/v1/entities/<int:entidad_id>",
+    methods=["GET"]
+)
+@token_required
+def get_entity_by_id(current_user, entidad_id):
+
+    return EntityController.get_entity_by_id(
+        current_user,
+        entidad_id
+    )
+
+
+# =========================
+# RESTORE ENTITY
+# =========================
+@entity.route(
+    "/api/v1/entities/<int:entidad_id>/restore",
+    methods=["PUT"]
+)
+@token_required
+def restore_entity(
+    current_user,
+    entidad_id
+):
+
+    return EntityController.restore_entity(
+        current_user,
+        entidad_id
+    )
+
+# =========================
+# GET AUDITORIA
+# =========================
+@entity.route(
+    "/api/v1/auditoria",
+    methods=["GET"]
+)
+@token_required
+def get_auditoria(current_user):
+
+    return EntityController.get_auditoria(
         current_user
     )

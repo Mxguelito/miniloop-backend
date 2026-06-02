@@ -13,6 +13,9 @@ from src.app.entities.models.persona_entidad_model import PersonaEntidad
 
 from src.app.entities.models.comercio_model import Comercio
 
+from src.app.authorization.models.role_model import Role
+from src.app.authorization.models.usuario_role_model import UsuarioRole 
+
 
 app = create_app()
 

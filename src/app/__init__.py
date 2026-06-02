@@ -10,6 +10,8 @@ from src.app.auth.routes.auth_routes import auth
 from src.app.entities.routes.entity_routes import entity
 from src.app.entities.routes.admin_entity_routes import admin_entity
 
+from src.app.authorization.routes.role_routes import role
+
 
 def create_app():
 
@@ -46,5 +48,5 @@ def create_app():
     app.register_blueprint(auth)
     app.register_blueprint(entity)
     app.register_blueprint(admin_entity)
-
+    app.register_blueprint(role)
     return app
