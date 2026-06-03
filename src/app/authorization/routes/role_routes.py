@@ -39,3 +39,14 @@ def assign_role(current_user):
     return RoleController.assign_role(
         current_user
     )
+
+@role.route(
+    "/revocar",
+    methods=["POST"]
+)
+@token_required
+def revoke_role(current_user):
+
+    return RoleController.revoke_role(
+        current_user
+    )

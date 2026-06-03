@@ -36,3 +36,17 @@ class RoleController:
                 rol_id,
                 current_user
             )
+    
+    @staticmethod
+    def revoke_role(current_user):
+
+        data = request.get_json()
+
+        usuario_id = data.get("usuario_id")
+        rol_id = data.get("rol_id")
+        
+        return RoleService.revocar_rol(
+                usuario_id,
+                rol_id,
+                current_user
+            )

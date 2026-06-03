@@ -161,5 +161,73 @@ class RoleService:
                 "message": str(e)
 
             }, 500
+        
+    
+    @staticmethod
+    def revocar_rol(usuario_id, rol_id, revocado_por):
+        usuario = UsuarioAuth.query.get(usuario_id)
+        if not usuario:
+
+            return {
+                "success": False,
+                "message": "Usuario no encontrado"
+            }, 404
+        rol = Role.query.get(rol_id)
+        if not rol:
+
+            return {
+                "success": False,
+                "message": "Rol no encontrado"
+            }, 404
+        asignacion = UsuarioRole.query.filter_by(
+            usuario_id=usuario_id,
+            rol_id=rol_id
+        ).first()
+
+        if not asignacion:
+
+            return {
+                "success": False,
+                "message": "El usuario no tiene asignado este rol"
+            }, 404
+        
+        try:
+
+            db.session.delete(asignacion)
+
+            auditoria = Auditoria(
+
+                persona_id=revocado_por.id,
+
+                evento="ROLE_REVOKED",
+
+                severidad="WARNING",
+
+                descripcion=f"Rol {rol.nombre} revocado al usuario {usuario.username}"
+            )
+
+            db.session.add(auditoria)
+
+            db.session.commit()
+
+            return {
+
+                "success": True,
+
+                "message": "Rol revocado correctamente"
+
+            }, 200
+        except Exception as e:
+
+            db.session.rollback()
+
+            return {
+
+                "success": False,
+
+                "message": str(e)
+
+            }, 500
+
 
     
