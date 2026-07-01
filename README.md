@@ -117,6 +117,9 @@ Aplicación desplegada en Render.
 
 Backend Flask + PostgreSQL + Gunicorn.
 
+https://miniloop-backend.onrender.com
+
+
 ---
 
 # Estado
