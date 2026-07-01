@@ -1,0 +1,100 @@
+{% extends "base_dashboard.html" %}
+
+{% block content %}
+<div class="dashboard-header">
+
+    <div></div>
+
+    <div class="user-menu">
+
+        <button class="user-button">
+
+            👤 {{ dashboard.user.nombre }}
+
+            ▼
+
+        </button>
+
+        <div class="user-dropdown">
+
+            <a href="/profile">
+
+                Mi Perfil
+
+            </a>
+
+            <a href="#">
+
+                Configuración
+
+            </a>
+
+            <hr>
+
+            <a href="/logout" class="logout-link">
+
+                Cerrar sesión
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card">
+
+    <h2>Dashboard</h2>
+
+    <h3>
+        Bienvenido
+        {{ dashboard.user.nombre }}
+        {{ dashboard.user.apellido }}
+    </h3>
+
+    <hr>
+
+    <p><strong>Email:</strong> {{ dashboard.user.email }}</p>
+
+    <p><strong>Documento:</strong> {{ dashboard.user.documento }}</p>
+
+    <p><strong>Estado:</strong> {{ dashboard.user.estado }}</p>
+
+    <hr>
+
+    <h3>Módulos</h3>
+
+    <ul>
+
+    {% for modulo in dashboard.modules %}
+
+        <li>
+
+            {{ modulo.name }}
+
+            {% if modulo.enabled %}
+                ✅
+            {% else %}
+                🔒
+            {% endif %}
+
+        </li>
+
+    {% endfor %}
+
+    </ul>
+
+    <hr>
+
+    <h3>Estadísticas</h3>
+
+    <p>Entidades: {{ dashboard.stats.entities }}</p>
+
+    <p>Notificaciones: {{ dashboard.stats.notifications }}</p>
+
+    <p>Sesiones activas: {{ dashboard.stats.active_sessions }}</p>
+
+</div>
+
+{% endblock %}

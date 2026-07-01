@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card fade">
+
+    <h2>Mi Perfil</h2>
+
+    <h3>
+
+        {{ profile.nombre }}
+        {{ profile.apellido }}
+
+    </h3>
+
+    <hr>
+
+    <p>
+
+        <strong>Correo electrónico:</strong>
+
+        {{ profile.email }}
+
+    </p>
+
+    <p>
+
+        <strong>Documento:</strong>
+
+        {{ profile.documento }}
+
+    </p>
+
+    <p>
+
+        <strong>Estado:</strong>
+
+        {{ profile.estado }}
+
+    </p>
+
+    {% if profile.telefono %}
+
+    <p>
+
+        <strong>Teléfono:</strong>
+
+        {{ profile.telefono }}
+
+    </p>
+
+    {% endif %}
+
+    {% if profile.fecha_creacion %}
+
+    <p>
+
+        <strong>Fecha de registro:</strong>
+
+        {{ profile.fecha_creacion }}
+
+    </p>
+
+    {% endif %}
+
+    <hr>
+
+   <div style="display:flex; gap:15px; margin-top:30px;">
+
+    <form action="/dashboard" method="GET">
+
+        <button type="submit">
+
+            ← Volver
+
+        </button>
+
+    </form>
+
+    <form action="/profile/edit" method="GET">
+
+        <button type="submit">
+
+            ✏️ Editar Perfil
+
+        </button>
+
+    </form>
+
+</div>
+
+</div>
+
+{% endblock %}

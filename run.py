@@ -19,7 +19,9 @@ from src.app.authorization.models.usuario_role_model import UsuarioRole
 
 app = create_app()
 
+app.secret_key ="miniloop-secret"
+
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run()

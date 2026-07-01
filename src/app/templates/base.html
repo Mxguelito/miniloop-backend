@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MiniLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header class="public-header">
+
+    <div class="public-logo">
+
+        <h1>🚀 MiniLoop</h1>
+
+    </div>
+
+    <nav class="public-nav">
+
+        <a href="/">Inicio</a>
+
+        <a href="/login">Login</a>
+
+        <a href="/register">Registrarse</a>
+
+    </nav>
+
+</header>
+
+<main class="public-container">
+
+    {% block content %}
+    {% endblock %}
+
+</main>
+
+</body>
+
+</html>

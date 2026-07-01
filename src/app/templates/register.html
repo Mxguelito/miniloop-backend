@@ -1,0 +1,93 @@
+{% extends "base_public.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Crear Cuenta</h2>
+
+    <p>Registrate en MiniLoop.</p>
+
+    {% if error %}
+
+    <p class="error">
+
+        {{ error }}
+
+    </p>
+
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label>Nombre</label>
+
+            <input
+                type="text"
+                name="nombre"
+                placeholder="Victor"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Apellido</label>
+
+            <input
+                type="text"
+                name="apellido"
+                placeholder="Montejo"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Email</label>
+
+            <input
+                type="email"
+                name="email"
+                placeholder="correo@ejemplo.com"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+    <label>Documento</label>
+
+    <input
+        type="text"
+        name="documento"
+        placeholder="12345678"
+        required>
+
+</div>
+
+        <div class="form-group">
+
+            <label>Contraseña</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="********"
+                required>
+
+        </div>
+
+        <button type="submit">
+
+            Registrarse
+
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

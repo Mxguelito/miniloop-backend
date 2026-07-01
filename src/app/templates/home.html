@@ -1,0 +1,109 @@
+{% extends "base_public.html" %}
+
+{% block content %}
+
+<div class="card fade">
+
+    <h1>Bienvenido a MiniLoop</h1>
+
+    <p style="margin-top:20px;color:var(--text-light);font-size:18px;line-height:30px;">
+
+        Plataforma integral para administrar consorcios, comercios,
+        marketplace y delivery desde un único lugar.
+
+    </p>
+
+   <div class="hero-buttons">
+
+    <a href="/login" class="btn-home btn-login">
+        Iniciar sesión
+    </a>
+
+    <a href="/register" class="btn-home btn-register">
+        Crear cuenta
+    </a>
+
+</div>
+
+</div>
+
+
+<div class="dashboard-grid">
+
+    <div class="module">
+
+        <div>
+
+            <h4>🏢 Consorcios</h4>
+
+            <p>
+                Administración de edificios, propietarios,
+                inquilinos y expensas.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="module">
+
+        <div>
+
+            <h4>🛒 Marketplace</h4>
+
+            <p>
+                Compra y venta entre vecinos
+                y comercios.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="module">
+
+        <div>
+
+            <h4>🚚 Delivery</h4>
+
+            <p>
+                Gestión completa de pedidos
+                y repartidores.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="module">
+
+        <div>
+
+            <h4>📊 Dashboard Inteligente</h4>
+
+            <p>
+                Reportes, estadísticas
+                e indicadores en tiempo real.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="card" style="margin-top:40px;">
+
+    <h2>¿Qué es MiniLoop?</h2>
+
+    <p style="margin-top:20px;line-height:32px;color:var(--text-light);">
+
+        MiniLoop es una plataforma SaaS para administrar
+        consorcios y conectar personas, comercios,
+        servicios y marketplace en un mismo ecosistema.
+
+    </p>
+
+</div>
+
+{% endblock %}

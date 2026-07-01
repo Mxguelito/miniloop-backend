@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card fade">
+
+    <h2>Editar Perfil</h2>
+
+    <p>
+        Actualizá la información de tu perfil.
+    </p>
+
+    {% if error %}
+
+    <div class="alert">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label>Nombre</label>
+
+            <input
+                type="text"
+                name="nombre"
+                value="{{ profile.nombre }}"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Apellido</label>
+
+            <input
+                type="text"
+                name="apellido"
+                value="{{ profile.apellido }}"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Teléfono</label>
+
+            <input
+                type="text"
+                name="telefono"
+                value="{{ profile.telefono or '' }}">
+
+        </div>
+
+        <div style="display:flex; gap:15px; margin-top:30px;">
+
+            <button type="submit">
+
+                Guardar Cambios
+
+            </button>
+
+            <button
+                type="button"
+                onclick="window.location.href='/profile'">
+
+                Cancelar
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

@@ -346,6 +346,7 @@ class AuthService:
     @staticmethod
     def dashboard(current_user):
 
+
         try:
 
             dashboard_data = {
@@ -413,8 +414,74 @@ class AuthService:
         
 
 
-    
-    
+    @staticmethod
+    def profile(current_user):
+
+          try:
+              auditoria = Auditoria(
+                  persona_id=current_user.id,
+                  evento="PROFILE_VIEWED",
+                  severidad="INFO",
+                    descripcion=f"Perfil consultado: {current_user.email}"
+              )
+
+              db.session.add(auditoria)
+              db.session.commit()
+
+              return {
+                  "body": {
+                      "success": True,
+                      "profile": current_user.to_dict()
+                  },
+                  "status": 200
+              }
+
+          except Exception as e:
+              db.session.rollback()
+              return {
+                  "body": {
+                      "success": False,
+                      "message": "Error cargando perfil",
+                      "error": str(e)
+                  },
+                  "status": 500
+              }
+          
+
+
+
+    @staticmethod
+    def audit():
+
+        try:
+
+            auditorias= Auditoria.query.order_by(
+                Auditoria.id.desc()
+            ).all()
+
+           
+
+            return {
+                "body": {
+                    "success": True,
+                    "auditorias": auditorias
+                },
+                "status": 200
+            }
+
+        except Exception as e:
+
+            db.session.rollback()
+
+            return {
+                "body": {
+                    "success": False,
+                    "message": "Error cargando auditoría",
+                    "error": str(e)
+                },
+                "status": 500
+            }
+
     @staticmethod
     def update_profile(current_user, data):
 

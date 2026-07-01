@@ -1,0 +1,47 @@
+{% extends "base_dashboard.html" %}
+
+{% block content %}
+
+<div class="card">
+
+    <h2>Auditoría del Sistema</h2>
+
+    <table class="table">
+
+        <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Evento</th>
+                <th>Descripción</th>
+                <th>Severidad</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% for log in auditorias %}
+
+        <tr>
+
+            <td>{{ log.id }}</td>
+            <td>{{ log.persona_id }}</td>
+            <td>{{ log.evento }}</td>
+            <td>{{ log.descripcion }}</td>
+            <td>{{ log.severidad }}</td>
+
+        </tr>
+
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

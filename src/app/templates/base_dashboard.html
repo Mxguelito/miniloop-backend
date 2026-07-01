@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MiniLoop</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            🚀
+
+            <div>
+
+                <h2>MiniLoop</h2>
+
+                <span>Enterprise</span>
+
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="/dashboard">🏠 Inicio</a>
+
+
+            <a href="/roles">👥 Roles</a>
+
+            <a href="/permisos">🛡 Permisos</a>
+
+            <a href="/ia">🤖 IA</a>
+            
+            <a href="/auditoria">📋 Auditoría</a>
+
+            <a href="/construccion">🏢 Consorcios</a>
+
+            <a href="/construccion">🏪 Comercios</a>
+
+            <a href="/construccion">🛒 Marketplace</a>
+
+            <a href="/construccion">🚚 Delivery</a>
+
+
+        </nav>
+
+    </aside>
+
+    <!-- CONTENIDO -->
+
+    <div class="content">
+
+        <header class="topbar">
+
+            <div>
+
+                <h1>MiniLoop</h1>
+
+                <p>Enterprise Management System</p>
+
+            </div>
+
+            <div class="user">
+
+                👤 Administrador
+
+            </div>
+
+        </header>
+
+        <main>
+
+            {% block content %}
+            {% endblock %}
+
+        </main>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

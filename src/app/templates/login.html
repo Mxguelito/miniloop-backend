@@ -1,0 +1,73 @@
+{% extends "base_public.html" %}
+
+{% block content %}
+
+<div class="card fade">
+
+    <h2>Bienvenido</h2>
+
+    <p>
+        Ingresá para acceder a MiniLoop.
+    </p>
+
+    {% if error %}
+
+    <div class="alert">
+
+        {{ error }}
+
+    </div>
+
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="form-group">
+
+            <label>Correo electrónico</label>
+
+            <input
+                type="email"
+                name="correo"
+                placeholder="correo@empresa.com"
+                required>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>Contraseña</label>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="********"
+                required>
+
+        </div>
+
+        <button type="submit">
+
+            Ingresar
+
+        </button>
+
+    </form>
+
+    <hr>
+
+    <p>
+
+        ¿No tenés una cuenta?
+
+        <a href="/register">
+
+            Registrate aquí
+
+        </a>
+
+    </p>
+
+</div>
+
+{% endblock %}
