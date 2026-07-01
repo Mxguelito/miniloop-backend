@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 from flask import Flask
 from flask_jwt_extended import JWTManager
 from flask_migrate import Migrate
@@ -18,20 +19,19 @@ from src.app.routes.ai_routes import ai
 
 def create_app():
 
+    load_dotenv()
+
     app = Flask(__name__)
 
     # DATABASE
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv(
-    "DATABASE_URL",
-    "postgresql://postgres:admin123@localhost/miniloop_backend"
-)
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     # JWT
 
-    app.config["JWT_SECRET_KEY"] = "miniloop_super_ultra_enterprise_jwt_secret_key_2026_backend_production"
+    app.config["JWT_SECRET_KEY"] = os.getenv("JWT_SECRET_KEY")
 
     # Guardar el JWT en cookies
     app.config["JWT_TOKEN_LOCATION"] = ["cookies"]

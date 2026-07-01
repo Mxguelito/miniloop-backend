@@ -1,6 +1,7 @@
 from src.app import create_app
 from src.app.shared.config.db import db
-
+import os
+from dotenv import load_dotenv
 # AUTH
 from src.app.auth.models.persona_model import Persona
 from src.app.auth.models.usuario_auth_model import UsuarioAuth
@@ -19,7 +20,9 @@ from src.app.authorization.models.usuario_role_model import UsuarioRole
 
 app = create_app()
 
-app.secret_key ="miniloop-secret"
+load_dotenv()
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 
 
