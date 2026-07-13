@@ -37,7 +37,7 @@ jobs:
               run: pip install mypy
 
             - name: Ejecutar Mypy
-              run: mypy --explicit-package-bases src
+              run: mypy src
 
             
             - name: Instalar Pytest
