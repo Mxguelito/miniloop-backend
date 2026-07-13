@@ -1,8 +1,8 @@
 from flask import request
 
-from flask_jwt_extended import get_jwt_identity
 
-from src.app.auth.models.persona_model import Persona
+
+
 
 from src.app.authorization.services.permission_service import PermissionService
 
