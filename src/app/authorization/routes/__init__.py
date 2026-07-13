@@ -1,1 +1,1 @@
-from .permission_routes import permission
+from .permission_routes import permission as permission

@@ -431,7 +431,7 @@ class EntityService:
 
                 severidad="INFO",
 
-                descripcion=f"Consulta de entidades realizada"
+                descripcion="Consulta de entidades realizada"
             )
             db.session.add(auditoria)
             db.session.commit()

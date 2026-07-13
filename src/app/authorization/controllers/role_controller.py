@@ -1,5 +1,5 @@
 from flask import jsonify, request
-from flask_jwt_extended import get_jwt_identity
+
 
 
 from src.app.authorization.services.role_service import RoleService

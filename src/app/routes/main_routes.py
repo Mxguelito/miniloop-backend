@@ -117,7 +117,7 @@ def edit_profile(current_user):
 @main.route("/logout")
 @token_required
 def logout(current_user):
-    response = AuthService.logout(current_user)
+    AuthService.logout(current_user)
     resp = make_response(redirect(url_for("main.home")))
     unset_jwt_cookies(resp)
     session.clear()
